@@ -30,6 +30,11 @@ THE SOFTWARE.
 <!-- Kindle dosen't handle dl table very well -->
 <xsl:param name="toc.list.type">ul</xsl:param>
 
+<!-- Kindle renders li>p badly -->
+<xsl:template match="listitem/para">
+  <xsl:apply-templates />
+</xsl:template>
+
 <!-- Flatten navPoints and kindlegen fix
      Copied from docbook.xsl, remove the ncx: prefix since kindlegen cannot handle it.
      Generate flat navPoints because kindle doesn't understand nested navPoints.
