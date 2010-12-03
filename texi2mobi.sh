@@ -23,6 +23,7 @@ MAKEINFO=makeinfo
 DBTOEPUB=dbtoepub
 KINDLEGEN=kindlegen
 MOBIXSL=$(dirname $0)/mobi.xsl
+MOBICSS=$(dirname $0)/style.css
 BASENAME=$(basename $1 .texi)
 
 if [ $# -lt 1 ]; then
@@ -40,6 +41,6 @@ makeinfo --docbook $BASENAME.texi
 # doesn't strip the @setfilename command
 sed -i -e 's#<para>&lt;setfilename&gt;.*&lt;/setfilename&gt;</para>##' $BASENAME.xml
 
-dbtoepub -s $MOBIXSL $BASENAME.xml
+dbtoepub -c $MOBICSS -s $MOBIXSL $BASENAME.xml
 
 epub2mobi $BASENAME.epub $BASENAME.mobi
