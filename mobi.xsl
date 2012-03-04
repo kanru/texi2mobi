@@ -30,6 +30,31 @@ THE SOFTWARE.
 <!-- Kindle dosen't handle dl table very well -->
 <xsl:param name="toc.list.type">ul</xsl:param>
 
+<!-- don't generate empty label -->
+<xsl:param name="chapter.autolabel" select="0"/>
+
+<!-- don't use template "the section called %t" -->
+<xsl:param name="xref.with.number.and.title" select="0"/>
+<xsl:param name="local.l10n.xml" select="document('')"/>
+<l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
+  <l:l10n language="en">
+    <l:context name="xref">
+      <l:template name="bridgehead" text="“%t”"/>
+      <l:template name="refsection" text="“%t”"/>
+      <l:template name="refsect1" text="“%t”"/>
+      <l:template name="refsect2" text="“%t”"/>
+      <l:template name="refsect3" text="“%t”"/>
+      <l:template name="sect1" text="“%t”"/>
+      <l:template name="sect2" text="“%t”"/>
+      <l:template name="sect3" text="“%t”"/>
+      <l:template name="sect4" text="“%t”"/>
+      <l:template name="sect5" text="“%t”"/>
+      <l:template name="section" text="“%t”"/>
+      <l:template name="simplesect" text="“%t”"/>
+    </l:context>
+  </l:l10n>
+</l:i18n>
+
 <!-- Kindle renders li>p badly -->
 <xsl:template match="listitem/para">
   <xsl:apply-templates />

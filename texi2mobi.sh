@@ -35,7 +35,7 @@ epub2mobi () {
     $KINDLEGEN $1 -o $2
 }
 
-makeinfo --docbook $BASENAME.texi
+makeinfo --force --docbook $BASENAME.texi
 
 # Some texi include other texi files, somehow makeinfo --docbook
 # doesn't strip the @setfilename command
