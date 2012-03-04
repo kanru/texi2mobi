@@ -1,0 +1,5 @@
+Texi2mobi
+
+The texi2mobi.sh script converts texi formatted book/manual to docbook
+format then use mobi.xsl overlay style sheet to generate a epub file
+that is kindlegen friendly, then generate the final mobi format.
